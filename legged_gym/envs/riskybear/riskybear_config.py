@@ -38,22 +38,22 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
     class init_state(LeggedRobotCfg.init_state):
         pos = [0.0, 0.0, .1] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
-            'Upper0': 1.,   # [rad]
-            'Upper1': 1.,   # [rad]
-            'Upper2': 1.,   # [rad]
-            'Upper3': 1.,   # [rad]
+            'Upper0': +0.7854,   # [rad]
+            'Upper1': -0.7854,   # [rad]
+            'Upper2': +0.7854,   # [rad]
+            'Upper3': -0.7854,   # [rad]
 
-            'Lower0': 1.,     # [rad]
-            'Lower1': 1.,   # [rad]
-            'Lower2': 1.,     # [rad]
-            'Lower3': 1.,   # [rad]
+            'Lower0': +0.,     # [rad]
+            'Lower1': +0.,   # [rad]
+            'Lower2': +0.,     # [rad]
+            'Lower3': +0.,   # [rad]
         }
 
     class control(LeggedRobotCfg.control):
         # PD Drive parameters:
         control_type = 'P'
-        stiffness = {'Upper': 20., "Lower": 20.}  # [N*m/rad]
-        damping = {'Upper': 0.5, "Lower": 0.5}     # [N*m*s/rad]
+        stiffness = {'Upper': 40., "Lower": 40.}  # [N*m/rad]
+        damping = {'Upper': 1., "Lower": 1.}     # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
         # decimation: Number of control action updates @ sim DT per policy DT
