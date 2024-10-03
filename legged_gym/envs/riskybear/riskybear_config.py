@@ -66,6 +66,7 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
         penalize_contacts_on = ["Upper0_Link", "Upper1_Link", "Upper2_Link", "Upper3_Link"]
         terminate_after_contacts_on = ["base_link"]
         self_collisions = 1 # 1 to disable, 0 to enable...bitwise filter
+        flip_visual_attachments = False
   
     class rewards(LeggedRobotCfg.rewards):
         soft_dof_pos_limit = 0.9
