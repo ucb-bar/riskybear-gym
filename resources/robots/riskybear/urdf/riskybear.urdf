@@ -35,8 +35,7 @@
   <link name="Upper0_Link">
     <inertial>
       <origin xyz="0.020919 0.016029 0.0015329" rpy="0 0 0" />
-      <mass
-        value="0.011825" />
+      <mass value="0.011825" />
       <inertia
         ixx="4.6112E-07"
         ixy="4.4904E-08"
@@ -67,13 +66,13 @@
     <parent link="base_link" />
     <child link="Upper0_Link" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="0" upper="1.57" effort="0.19" velocity="12" />
   </joint>
   <link name="Lower0_Link">
     <inertial>
       <origin xyz="0.0021 -0.01229 0.014923" rpy="0 0 0" />
-      <mass
-        value="0.0041843" />
+      <mass value="0.0041843" />
       <inertia
         ixx="2.6912E-06"
         ixy="-7.8059E-22"
@@ -104,13 +103,13 @@
     <parent link="Upper0_Link" />
     <child link="Lower0_Link" />
     <axis xyz="1 0 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="-0.35" upper="0.8" effort="0.19" velocity="12" />
   </joint>
   <link name="Upper1_Link">
     <inertial>
       <origin xyz="0.020917 0.016029 -0.0015554" rpy="0 0 0" />
-      <mass
-        value="0.04" />
+      <mass value="0.04" />
       <inertia
         ixx="4.6112E-07"
         ixy="4.5017E-08"
@@ -141,6 +140,7 @@
     <parent link="base_link" />
     <child link="Upper1_Link" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="-1.57" upper="0" effort="0.19" velocity="12" />
   </joint>
   <link name="Lower1_Link">
@@ -177,6 +177,7 @@
     <parent link="Upper1_Link" />
     <child link="Lower1_Link" />
     <axis xyz="1 0 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="-0.35" upper="0.8" effort="0.19" velocity="12" />
   </joint>
   <link name="Upper2_Link">
@@ -213,6 +214,7 @@
     <parent link="base_link" />
     <child link="Upper2_Link" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="0" upper="1.57" effort="0.19" velocity="12" />
   </joint>
   <link name="Lower2_Link">
@@ -249,6 +251,7 @@
     <parent link="Upper2_Link" />
     <child link="Lower2_Link" />
     <axis xyz="1 0 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="-0.35" upper="0.8" effort="0.19" velocity="12" />
   </joint>
   <link name="Upper3_Link">
@@ -285,6 +288,7 @@
     <parent link="base_link" />
     <child link="Upper3_Link" />
     <axis xyz="0 1 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="-1.57" upper="0" effort="0.19" velocity="12" />
   </joint>
   <link name="Lower3_Link">
@@ -321,6 +325,7 @@
     <parent link="Upper3_Link" />
     <child link="Lower3_Link" />
     <axis xyz="1 0 0" />
+    <dynamics damping="0" friction="0"/>
     <limit lower="-0.35" upper="0.8" effort="0.19" velocity="12" />
   </joint>
 </robot>
