@@ -84,18 +84,18 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
         class scales(LeggedRobotCfg.rewards.scales):
             termination         = -0.1   # -0.1
             tracking_lin_vel    =  1.0   # 10.0
-            tracking_ang_vel    =  0.0   # 0.3
+            tracking_ang_vel    =  0.5   # 0.3
             lin_vel_z           = -0.0
             ang_vel_xy          = -0.0
             orientation         = -0.01  # -0.3
             torques             = -1e-5  # -0.00001
             dof_vel             = -0.0   # -0.00001
-            dof_acc             = -0.0   # -2.0e-7
+            dof_acc             = -1e-8  # -2.0e-7
             base_height         = -0.0   # -5.0
-            feet_air_time       =  0.2    # 5.0
+            feet_air_time       =  0.5   # 5.0
             collision           = -0.1   # -1.
             feet_stumble        = -0.0
-            action_rate         = -0.0   # -0.01
+            action_rate         = -1e-5  # -0.01
             stand_still         = -0.0   # -0.00001
 
         only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)
