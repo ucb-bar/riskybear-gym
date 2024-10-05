@@ -32,9 +32,15 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class RiskyBearRoughCfg(LeggedRobotCfg):
     class env(LeggedRobotCfg.env):
+        num_envs = 2048
         num_observations = 223
         num_actions = 8
     
+
+    class terrain(LeggedRobotCfg.terrain):
+        vertical_scale = 0.0005 # [m]
+
+
     class commands(LeggedRobotCfg.commands):
         class ranges(LeggedRobotCfg.commands.ranges):
             lin_vel_x = [-0., 2.0] # min max [m/s]
@@ -58,8 +64,8 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
     class control(LeggedRobotCfg.control):
         # PD Drive parameters:
         control_type = "P"
-        stiffness = {"Upper": 40.0, "Lower": 40.0}  # [N*m/rad]
-        damping = {"Upper": 1.0, "Lower": 1.0}  # [N*m*s/rad]
+        stiffness = {"Upper": 5.0, "Lower": 5.0}  # [N*m/rad]
+        damping = {"Upper": .1, "Lower": .1}  # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
         # decimation: Number of control action updates @ sim DT per policy DT
@@ -76,31 +82,41 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
   
     class rewards(LeggedRobotCfg.rewards):
         class scales(LeggedRobotCfg.rewards.scales):
-            termination = -0.0
-            tracking_lin_vel = 2.0
-            tracking_ang_vel = 0.5
-            lin_vel_z = -0.5
-            ang_vel_xy = -0.05
-            orientation = -0.0
+            termination = -0.1
+            tracking_lin_vel = 5.0
+            tracking_ang_vel = 0.1
+            lin_vel_z = -0.0
+            ang_vel_xy = -0.0
+            orientation = -0.1
             torques = -0.00001
             dof_vel = -0.0
             dof_acc = -2.5e-7
-            base_height = -0.0 
-            feet_air_time = 0.5
+            base_height = -0.01
+            feet_air_time = 1.0
             collision = -1.
-            feet_stumble = -0.0 
-            action_rate = -0.01
-            stand_still = -0.001
+            feet_stumble = -0.0
+            action_rate = -0.0001
+            stand_still = -0.1
 
         only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)
         tracking_sigma = 0.25 # tracking reward = exp(-error^2/sigma)
         soft_dof_pos_limit = 1. # percentage of urdf limits, values above this limit are penalized
         soft_dof_vel_limit = 1.
         soft_torque_limit = 1.
-        base_height_target = 1.
+        base_height_target = .1
         max_contact_force = 100. # forces above this value are penalized
 
 class RiskyBearRoughCfgPPO(LeggedRobotCfgPPO):
+    class policy(LeggedRobotCfgPPO.policy):
+        init_noise_std = 1.0
+        actor_hidden_dims = [256, 128, 128]
+        critic_hidden_dims = [256, 128, 128]
+        activation = "elu" # can be elu, relu, selu, crelu, lrelu, tanh, sigmoid
+        # only for 'ActorCriticRecurrent':
+        # rnn_type = 'lstm'
+        # rnn_hidden_size = 512
+        # rnn_num_layers = 1
+    
     class algorithm(LeggedRobotCfgPPO.algorithm):
         entropy_coef = 0.01
 
