@@ -57,7 +57,7 @@
       <origin xyz="0.028 0.012 0.0" rpy="0 0 0" />
       <geometry>
         <!-- <mesh filename="../meshes/Upper0_Link.STL" /> -->
-        <box size="0.03 0.013 0.013" />
+      <box size="0.03 0.025 0.025" />
       </geometry>
     </collision>
   </link>
@@ -131,7 +131,7 @@
       <origin xyz="0.028 0.012 0.0" rpy="0 0 0" />
       <geometry>
         <!-- <mesh filename="../meshes/Upper1_Link.STL" /> -->
-          <box size="0.03 0.013 0.013" />
+        <box size="0.03 0.025 0.025" />
       </geometry>
     </collision>
   </link>
@@ -205,7 +205,7 @@
       <origin xyz="0.028 0.012 0.0" rpy="0 0 0" />
       <geometry>
         <!-- <mesh filename="../meshes/Upper2_Link.STL" /> -->
-          <box size="0.03 0.013 0.013" />
+        <box size="0.03 0.025 0.025" />
       </geometry>
     </collision>
   </link>
@@ -279,7 +279,7 @@
       <origin xyz="0.028 0.012 0.0" rpy="0 0 0" />
       <geometry>
         <!-- <mesh filename="../meshes/Upper3_Link.STL" /> -->
-        <box size="0.03 0.013 0.013" />
+      <box size="0.03 0.025 0.025" />
       </geometry>
     </collision>
   </link>
