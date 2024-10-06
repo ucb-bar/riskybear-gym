@@ -77,9 +77,9 @@ def play(args):
     for i in range(10*int(env.max_episode_length)):
 
         
-        obs[:, 9] = 0.4         # linear x velocity
-        obs[:, 10] = 0.0        # linear y velocity
-        obs[:, 11] = -0.2        # angular yaw velocity
+        # obs[:, 9] = 0.4         # linear x velocity
+        # obs[:, 10] = 0.0        # linear y velocity
+        # obs[:, 11] = -0.2        # angular yaw velocity
 
         actions = policy(obs.detach())
         obs, _, rews, dones, infos = env.step(actions.detach())

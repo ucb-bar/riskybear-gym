@@ -43,7 +43,7 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
 
     class commands(LeggedRobotCfg.commands):
         class ranges(LeggedRobotCfg.commands.ranges):
-            lin_vel_x = [-0., 0.4] # min max [m/s]
+            lin_vel_x = [0.2, 0.4] # min max [m/s]
             lin_vel_y = [-0.1, 0.1]   # min max [m/s]
             ang_vel_yaw = [-0.3, 0.3]    # min max [rad/s]
             heading = [0, 0]
@@ -84,7 +84,7 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
         class scales(LeggedRobotCfg.rewards.scales):
             termination         = -0.1   # -0.1
             tracking_lin_vel    =  1.0   # 10.0
-            tracking_ang_vel    =  0.2
+            tracking_ang_vel    =  0.5
             lin_vel_z           = -0.0
             ang_vel_xy          = -0.0
             orientation         = -0.01  # -0.3
