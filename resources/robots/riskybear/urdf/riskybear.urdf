@@ -2,8 +2,8 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot name="urdf_asm">
-  <link name="base_link">
+<robot name="riskybear">
+  <link name="base">
     <inertial>
       <origin xyz="5.0943E-06 -0.00091976 0.009145" rpy="0 0 0" />
       <mass value="0.16" />
@@ -63,11 +63,11 @@
   </link>
   <joint name="Upper0" type="revolute">
     <origin xyz="0.030849 0.030849 0.001" rpy="1.5708 0 0" />
-    <parent link="base_link" />
+    <parent link="base" />
     <child link="Upper0_Link" />
     <axis xyz="0 1 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="0" upper="1.57" effort="0.1" velocity="5" />
+    <limit lower="0" upper="1.57" effort="0.1" velocity="2" />
   </joint>
   <link name="Lower0_Link">
     <inertial>
@@ -104,7 +104,7 @@
     <child link="Lower0_Link" />
     <axis xyz="1 0 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="5" />
+    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="2" />
   </joint>
   <link name="Upper1_Link">
     <inertial>
@@ -137,11 +137,11 @@
   </link>
   <joint name="Upper1" type="revolute">
     <origin xyz="0.030849 -0.030849 0.001" rpy="1.5708 0 0" />
-    <parent link="base_link" />
+    <parent link="base" />
     <child link="Upper1_Link" />
     <axis xyz="0 1 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="-1.57" upper="0" effort="0.1" velocity="5" />
+    <limit lower="-1.57" upper="0" effort="0.1" velocity="2" />
   </joint>
   <link name="Lower1_Link">
     <inertial>
@@ -178,7 +178,7 @@
     <child link="Lower1_Link" />
     <axis xyz="1 0 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="5" />
+    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="2" />
   </joint>
   <link name="Upper2_Link">
     <inertial>
@@ -211,11 +211,11 @@
   </link>
   <joint name="Upper2" type="revolute">
     <origin xyz="-0.030849 -0.030849 0.001" rpy="1.5708 0 3.1416" />
-    <parent link="base_link" />
+    <parent link="base" />
     <child link="Upper2_Link" />
     <axis xyz="0 1 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="0" upper="1.57" effort="0.1" velocity="5" />
+    <limit lower="0" upper="1.57" effort="0.1" velocity="2" />
   </joint>
   <link name="Lower2_Link">
     <inertial>
@@ -252,7 +252,7 @@
     <child link="Lower2_Link" />
     <axis xyz="1 0 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="5" />
+    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="2" />
   </joint>
   <link name="Upper3_Link">
     <inertial>
@@ -285,11 +285,11 @@
   </link>
   <joint name="Upper3" type="revolute">
     <origin xyz="-0.030849 0.030849 0.001" rpy="1.5708 0 3.1416" />
-    <parent link="base_link" />
+    <parent link="base" />
     <child link="Upper3_Link" />
     <axis xyz="0 1 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="-1.57" upper="0" effort="0.1" velocity="5" />
+    <limit lower="-1.57" upper="0" effort="0.1" velocity="2" />
   </joint>
   <link name="Lower3_Link">
     <inertial>
@@ -326,6 +326,6 @@
     <child link="Lower3_Link" />
     <axis xyz="1 0 0" />
     <dynamics damping="0" friction="0"/>
-    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="5" />
+    <limit lower="-0.35" upper="0.8" effort="0.1" velocity="2" />
   </joint>
 </robot>

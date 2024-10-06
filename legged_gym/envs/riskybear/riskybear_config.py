@@ -43,13 +43,13 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
 
     class commands(LeggedRobotCfg.commands):
         class ranges(LeggedRobotCfg.commands.ranges):
-            lin_vel_x = [-0., 0.5] # min max [m/s]
-            lin_vel_y = [-0.2, 0.2]   # min max [m/s]
-            ang_vel_yaw = [-0.5, 0.5]    # min max [rad/s]
+            lin_vel_x = [-0., 0.4] # min max [m/s]
+            lin_vel_y = [-0.1, 0.1]   # min max [m/s]
+            ang_vel_yaw = [-0.3, 0.3]    # min max [rad/s]
             heading = [0, 0]
 
     class init_state(LeggedRobotCfg.init_state):
-        pos = [0.0, 0.0, .1] # x,y,z [m]
+        pos = [0.0, 0.0, .06] # x,y,z [m]
         default_joint_angles = { # = target angles [rad] when action = 0.0
             "Upper0": +0.7854,   # [rad]
             "Upper1": -0.7854,   # [rad]
@@ -64,12 +64,12 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
     class control(LeggedRobotCfg.control):
         # PD Drive parameters:
         control_type = "P"
-        stiffness = {"Upper": 5.0, "Lower": 5.0}  # [N*m/rad]
+        stiffness = {"Upper": 2.0, "Lower": 2.0}  # [N*m/rad]
         damping = {"Upper": .1, "Lower": .1}  # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
         # decimation: Number of control action updates @ sim DT per policy DT
-        decimation = 4
+        decimation = 20
 
     class asset(LeggedRobotCfg.asset):
         file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/riskybear/urdf/riskybear.urdf"
@@ -84,18 +84,18 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
         class scales(LeggedRobotCfg.rewards.scales):
             termination         = -0.1   # -0.1
             tracking_lin_vel    =  1.0   # 10.0
-            tracking_ang_vel    =  0.5   # 0.3
+            tracking_ang_vel    =  0.2
             lin_vel_z           = -0.0
             ang_vel_xy          = -0.0
             orientation         = -0.01  # -0.3
             torques             = -1e-5  # -0.00001
-            dof_vel             = -0.0   # -0.00001
-            dof_acc             = -1e-8  # -2.0e-7
+            dof_vel             = -1e-4  # -0.00001
+            dof_acc             = -0.0   # -2.0e-7
             base_height         = -0.0   # -5.0
-            feet_air_time       =  0.5   # 5.0
-            collision           = -0.1   # -1.
+            feet_air_time       =  0.5   # 1.0
+            collision           = -0.001 # -1.
             feet_stumble        = -0.0
-            action_rate         = -1e-5  # -0.01
+            action_rate         = -1e-4  # -0.01
             stand_still         = -0.0   # -0.00001
 
         only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)
@@ -103,7 +103,7 @@ class RiskyBearRoughCfg(LeggedRobotCfg):
         soft_dof_pos_limit    = 1. # percentage of urdf limits, values above this limit are penalized
         soft_dof_vel_limit    = 1.
         soft_torque_limit     = 1.
-        base_height_target    = .2
+        base_height_target    = .1
         max_contact_force     = 100. # forces above this value are penalized
 
 class RiskyBearRoughCfgPPO(LeggedRobotCfgPPO):
